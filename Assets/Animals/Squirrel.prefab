@@ -1235,7 +1235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6675904075390342363}
   - component: {fileID: 2150776853468712516}
-  - component: {fileID: 6500216125904103762}
+  - component: {fileID: 5107631516953264860}
   m_Layer: 0
   m_Name: Squirrel
   m_TagString: Untagged
@@ -1257,7 +1257,7 @@ Transform:
   m_Children:
   - {fileID: 577071149135898510}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 3.007, z: 0}
 --- !u!195 &2150776853468712516
 NavMeshAgent:
@@ -1281,7 +1281,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &6500216125904103762
+--- !u!114 &5107631516953264860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1290,11 +1290,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6336076278915468897}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfd911b5333f78140af0d2d28fcecbe1, type: 3}
+  m_Script: {fileID: 11500000, guid: 570a7bf6c08e24f178c66ba7ba402f98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wanderDistance: 150
-  walkSpeed: 20
+  wanderDistance: 50
+  walkSpeed: 5
   maxWalkTime: 6
   idleTime: 5
 --- !u!1 &6391383598939303898

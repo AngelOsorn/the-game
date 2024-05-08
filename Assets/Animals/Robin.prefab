@@ -112,7 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3996908546718514670}
   - component: {fileID: 3927060817229771311}
-  - component: {fileID: 7043297302913346713}
+  - component: {fileID: 6467953663025929302}
   m_Layer: 0
   m_Name: Robin
   m_TagString: Untagged
@@ -134,7 +134,7 @@ Transform:
   m_Children:
   - {fileID: 1914520602110170815}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &3927060817229771311
 NavMeshAgent:
@@ -158,7 +158,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &7043297302913346713
+--- !u!114 &6467953663025929302
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1302044357859956555}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfd911b5333f78140af0d2d28fcecbe1, type: 3}
+  m_Script: {fileID: 11500000, guid: 570a7bf6c08e24f178c66ba7ba402f98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   wanderDistance: 50
