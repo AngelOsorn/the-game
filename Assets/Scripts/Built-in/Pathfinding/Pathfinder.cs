@@ -9,7 +9,7 @@ public enum State
     Moving,
 }
 
-public class Test : MonoBehaviour
+public class Pathfinder : MonoBehaviour
 {
     private Animator animator;
     private IEnumerator coroutine;

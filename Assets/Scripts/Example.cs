@@ -15,6 +15,5 @@ public class Example : MonoBehaviour
     void Update()
     {
         framesCounted++;
-        Debug.Log(framesCounted + " " + counting);
     }
 }
