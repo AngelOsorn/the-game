@@ -19,17 +19,28 @@ public class AssetPlacement : MonoBehaviour {
     public int yBound = 100;
     public int globalScale = 1;
     private Vector3 meshSize;
+    private GameObject natureAssetsContainer;
 
     void Start() {
-        PlaceAssets();
+        //PlaceAssets();
     }
 
+#if UNITY_EDITOR
     public void PlaceAssets() {
+        // Make sure to clear all the current nature assets if there are any
+        natureAssetsContainer = GameObject.Find("Nature Assets Container");
+        DestroyImmediate(natureAssetsContainer);
+
+        // Create a new container to store all the assets
+        natureAssetsContainer = new GameObject("Nature Assets Container");
+
+        // Initialize mesh size
         meshSize = new Vector3(xBound, 100, yBound);
 
         for (int i = 0; i < assets.Length; i++) {
             NatureAsset currentAsset = assets[i];
             GameObject parent = new GameObject(currentAsset.name + " Container");
+            parent.transform.SetParent(natureAssetsContainer.transform);
 
             for (int j = 0; j < currentAsset.amount; j++) {
                 bool placed = false;
@@ -54,3 +65,4 @@ public class AssetPlacement : MonoBehaviour {
         }
     }
 }
+#endif
