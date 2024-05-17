@@ -14,7 +14,7 @@ The Map Generator script inside the Map Generator object is the heart of generat
 4. Octaves: Affects the "roundedness" of the terrain. The higher the amount of octaves, the more detail there is to the roundedness of the terrain.
 5. Persistance: Affects how "grainy" your terrain will be. Higher persistance makes the terrain more grainy and scattered.
 6. Lacunarity: Affects how detailed hills are on your terrain. A higher lacunarity value will make the terrain more "spiky," while a lower lacunarity value will make the terrain more smooth.
-7. Seed: A number that is associated with a certain randomly generated piece of terrain. Useful for replicating and saving pieces of terrain.
+7. Seed: A number that is associated with a certain randomly generated piece of terrain. Useful for replicating and saving pieces of terrain (If you're familiar with seeds in Minecraft, this seed system works essentially the same!).
 8. Offset: X and Y values that allow you to "move" through the noise map, being able to shift the terrain in the X or Y direction.
 9. Use Falloff: Highly recommended to keep this setting on. Forms edges around the terrain, turning the terrain into an island. Useful to establish boundaries for your map.
 10. Mesh Height Multiplier: The amount to scale the height of hills and bumps on your terrain by. Increasing this value makes hills and bumps on the terrain higher.
@@ -24,7 +24,8 @@ The Map Generator script inside the Map Generator object is the heart of generat
 - Name: The name of the region (e.g. Sand, Mountain).
 - Height: The height *up to* which the region will generate.
 - Color: The color of the region.
-Last, but not least, do not forget about the "Generate" button at the bottom of the Map Generator script, as you can use this button to regenerate the terrain's texture each time after you exit playmode.
+
+Last but not least, do not forget about the "Generate" button at the bottom of the Map Generator script, as you can use this button to regenerate the terrain's texture each time after you exit playmode.
 
 ## Asset Placement (Script)
 This script is responsible for randomly placing assets on your terrain.
@@ -36,11 +37,12 @@ This script is responsible for randomly placing assets on your terrain.
 - Amount: The number of objects that will be placed for this category.
 - Scale Range: The scale that the assets in this category can range from. X is the lower range, Y is the upper range. Set both X and Y to 1 if no variance in scale is desired.
 - Height Range: The height range that the assets in this category can spawn at. X is the minimum height, Y is the maximum height. You may have to mess around with these values if assets are spawning in undesired locations.
-- Grounding Offset: The amount to "push" the asset into the ground. Mainly used for tree assets, as the root of a tree can stick out if it is not set into the ground far enough. Recommended to set this value to 0 for assets that should not spawn pushed into the ground, such as animals.
+- Grounding Offset: The amount to "push" the asset into the ground. Mainly used for tree assets, as the root of a tree can stick out if it is not set into the ground far enough. You should set this value to 0 for assets that should not spawn pushed into the ground, such as animals.
 2. Water: The object that represents the water of the terrain. (Do not change this field unless you want to create your own water object.)
 3. X Bound: The boundary on the X-axis to place assets. Past the X Bound, assets will not be placed. You may have to mess around with this value to fit it properly if you change the size of your terrain.
-4. Z Bound. The boundary on the Z-axis to place assets. Past the Z Bound, assets will not be placed. You may have to mess around with this value to fit it properly if you change the size of your terrain.
+4. Z Bound: The boundary on the Z-axis to place assets. Past the Z Bound, assets will not be placed. You may have to mess around with this value to fit it properly if you change the size of your terrain.
 5. Global Scale: The amount by which to scale all assets that are placed.
+
 Use the "Place Assets" button at the bottom of the Asset Placement script to randomly place your set of assets. You can press the button repeatedly to get different configurations of asset placements.
 
 ## Water
