@@ -1,5 +1,5 @@
 # Terrain Building Documentation
-We've provided you will tools to generate terrain and customize water, but knowing how to use these tools can be confusing at first glance! Here you will find documentation on the fields (properties) of the scripts contained within the Map Generator object, as well as documentation on how to customize the water.
+We've provided you with tools to generate terrain and customize water, but knowing how to use these tools can be confusing at first glance! Here you will find documentation on the fields (properties) of the scripts contained within the Map Generator object, as well as documentation on how to customize the water.
 
 ## Map Generator Documentation
 Inside MainScene, you will find an object called "Map Generator," which is responsible for generating the terrain. Map Generator contains three scripts: Map Generator, Map Display, and Asset Placement. You only need to be familiar with how to use the Map Generator and Asset Placement scripts; do *not* change any fields inside the Map Display script.
@@ -24,7 +24,7 @@ The Map Generator script inside the Map Generator object is the heart of generat
 - Name: The name of the region (e.g. Sand, Mountain).
 - Height: The height *up to* which the region will generate.
 - Color: The color of the region.
-Last, but not least, do not forget about the "Generate" button at the bottom of the Map Generator script, as you will use this button to regenerate the terrain's texture each time after you exit playmode.
+Last, but not least, do not forget about the "Generate" button at the bottom of the Map Generator script, as you can use this button to regenerate the terrain's texture each time after you exit playmode.
 
 ## Asset Placement (Script)
 This script is responsible for randomly placing assets on your terrain.
