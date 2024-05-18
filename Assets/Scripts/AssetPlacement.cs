@@ -23,10 +23,6 @@ public class AssetPlacement : MonoBehaviour {
     private Vector3 meshSize;
     private GameObject natureAssetsContainer;
 
-    void Start() {
-        //PlaceAssets();
-    }
-
 #if UNITY_EDITOR
     public void PlaceAssets() {
         // Make sure to clear all the current nature assets if there are any
@@ -53,7 +49,7 @@ public class AssetPlacement : MonoBehaviour {
                     RaycastHit hit;
                     if (Physics.Raycast(new Vector3(randomPos.x, 1000, randomPos.z), Vector3.down, out hit, Mathf.Infinity)) {
                         if (hit.point.y > currentAsset.heightRange.x && hit.point.y < currentAsset.heightRange.y && hit.collider.gameObject != water) {
-                            //Debug.Log(hit.collider.gameObject.name);
+                            //Debug.Log(hit.collider.gameObject.name); // to see the name of the object hit by the raycast
                             Vector3 placementPos = new Vector3(randomPos.x, hit.point.y - currentAsset.groundingOffset, randomPos.z);
                             Quaternion placementRot = Quaternion.Euler(0, Random.Range(0, 360), 0);
                             GameObject placementPrefab = currentAsset.prefabs[Random.Range(0, currentAsset.prefabs.Length)];
