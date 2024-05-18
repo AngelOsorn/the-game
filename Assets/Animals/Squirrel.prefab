@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 577071149135898510}
   - component: {fileID: 6449208953967804294}
   m_Layer: 0
-  m_Name: squirrel_model
+  m_Name: squirrel mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 4355981073556061419}
   - component: {fileID: 8888113166111622651}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: squirrel model (put new materials here)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1236,8 +1236,6 @@ GameObject:
   - component: {fileID: 6675904075390342363}
   - component: {fileID: 2150776853468712516}
   - component: {fileID: 4895036781323493044}
-  - component: {fileID: 6091506740897525516}
-  - component: {fileID: 5115382332195193004}
   - component: {fileID: 1944870570274733162}
   m_Layer: 0
   m_Name: Squirrel
@@ -1297,53 +1295,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wanderDistance: 50
-  walkSpeed: 15
   maxWalkTime: 6
   idleTime: 5
---- !u!64 &6091506740897525516
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6336076278915468897}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
---- !u!64 &5115382332195193004
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6336076278915468897}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  redirectAnimal: 0
 --- !u!64 &1944870570274733162
 MeshCollider:
   m_ObjectHideFlags: 0

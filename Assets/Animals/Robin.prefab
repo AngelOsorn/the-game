@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 3996908546718514670}
   - component: {fileID: 3927060817229771311}
   - component: {fileID: 5722173658527769734}
+  - component: {fileID: -3839971067988610246}
   m_Layer: 0
   m_Name: Robin
   m_TagString: Untagged
@@ -171,9 +172,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wanderDistance: 50
-  walkSpeed: 15
   maxWalkTime: 6
   idleTime: 5
+  redirectAnimal: 0
+--- !u!64 &-3839971067988610246
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302044357859956555}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &1672053126354900969
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +377,7 @@ GameObject:
   - component: {fileID: 1914520602110170815}
   - component: {fileID: 8808993163900747657}
   m_Layer: 0
-  m_Name: sparrow_model
+  m_Name: robin mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -426,7 +449,7 @@ GameObject:
   - component: {fileID: 4063222577808909235}
   - component: {fileID: 6249760712668673881}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: robin model (place new materials here)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -621,7 +644,12 @@ PrefabInstance:
     - target: {fileID: 3532811643724589073, guid: af101c40c98435944a8edf3eaa3e7829,
         type: 3}
       propertyPath: m_Name
-      value: sparrow_model
+      value: robin mesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 3911969072238978852, guid: af101c40c98435944a8edf3eaa3e7829,
+        type: 3}
+      propertyPath: m_Name
+      value: robin model (place new materials here)
       objectReference: {fileID: 0}
     - target: {fileID: 4200945670588281515, guid: af101c40c98435944a8edf3eaa3e7829,
         type: 3}

@@ -16,7 +16,6 @@ public class Pathfinder : MonoBehaviour
 
     [Header("Wandering")]
     public float wanderDistance = 50f;
-    public float walkSpeed = 5f;
     public float maxWalkTime = 6f;
 
     [Header("Idling")]
@@ -38,7 +37,6 @@ public class Pathfinder : MonoBehaviour
     protected virtual void Initialise()
     {
         navAgent = GetComponent<NavMeshAgent>();
-        navAgent.speed = walkSpeed;
 
         currentState = State.Idle;
         UpdateState();
@@ -86,7 +84,12 @@ public class Pathfinder : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
 
         Vector3 randomDestination = GetRandomNavMeshPosition(transform.position, wanderDistance);
-
+        RaycastHit hit;
+        while (Physics.Raycast(randomDestination, randomDestination + Vector3.up, out hit, 10f))
+        {
+            navAgent.ResetPath();
+            randomDestination = GetRandomNavMeshPosition(transform.position, wanderDistance);
+        }
         navAgent.SetDestination(randomDestination);
 
         SetState(State.Moving, true);
@@ -106,7 +109,6 @@ public class Pathfinder : MonoBehaviour
             if ((Time.time - startTime >= maxWalkTime) || (redirectAnimal)) 
             {
                 redirectAnimal = false;
-                Debug.Log("redirection");
                 navAgent.ResetPath();
                 SetState(State.Idle, true);
             }
