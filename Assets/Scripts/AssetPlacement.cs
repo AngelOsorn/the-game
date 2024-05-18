@@ -12,12 +12,13 @@ public class AssetPlacement : MonoBehaviour {
         [SerializeField] public Vector2 scaleRange;
         [SerializeField] public Vector2 heightRange;
         [SerializeField] public float groundingOffset; // amount to be "shoved" into the ground, mainly for trees
+        [SerializeField] public int xBound = 800;
+        [SerializeField] public int zBound = 800;
+        [SerializeField] public bool obstacle;
     }
 
     public NatureAsset[] assets;
     public GameObject water;
-    public int xBound = 100;
-    public int zBound = 100;
     public int globalScale = 1;
     private Vector3 meshSize;
     private GameObject natureAssetsContainer;
@@ -35,13 +36,13 @@ public class AssetPlacement : MonoBehaviour {
         // Create a new container to store all the assets
         natureAssetsContainer = new GameObject("Nature Assets Container");
 
-        // Initialize mesh size
-        meshSize = new Vector3(xBound, 100, zBound);
-
         for (int i = 0; i < assets.Length; i++) {
             NatureAsset currentAsset = assets[i];
             GameObject parent = new GameObject(currentAsset.name + " Container");
             parent.transform.SetParent(natureAssetsContainer.transform);
+
+            // Initialize mesh size
+            meshSize = new Vector3(currentAsset.xBound, 100, currentAsset.zBound);
 
             for (int j = 0; j < currentAsset.amount; j++) {
                 bool placed = false;
@@ -59,7 +60,9 @@ public class AssetPlacement : MonoBehaviour {
 
                             GameObject clone = Instantiate(placementPrefab, placementPos, placementRot, parent.transform);
                             clone.transform.localScale *= globalScale * Random.Range(currentAsset.scaleRange.x, currentAsset.scaleRange.y);
-                            clone.AddComponent<NavMeshObstacle>(); // make the object an obstacle for animals
+                            if(currentAsset.obstacle) {
+                                clone.AddComponent<NavMeshObstacle>(); // make the object an obstacle for animals
+                            }
                             placed = true;
                         }
                     }
