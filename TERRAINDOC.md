@@ -1,4 +1,4 @@
-# Terrain Building Documentation
+# Terrain Generation Documentation
 We've provided you with tools to generate terrain and customize water, but knowing how to use these tools can be confusing at first glance! Here you will find documentation on the fields (properties) of the scripts contained within the Map Generator object, as well as documentation on how to customize the water.
 
 ## Map Generator Documentation
