@@ -38,10 +38,11 @@ This script is responsible for randomly placing assets on your terrain.
 - Scale Range: The scale that the assets in this category can range from. X is the lower range, Y is the upper range. Set both X and Y to 1 if no variance in scale is desired.
 - Height Range: The height range that the assets in this category can spawn at. X is the minimum height, Y is the maximum height. You may have to mess around with these values if assets are spawning in undesired locations.
 - Grounding Offset: The amount to "push" the asset into the ground. Mainly used for tree assets, as the root of a tree can stick out if it is not set into the ground far enough. You should set this value to 0 for assets that should not spawn pushed into the ground, such as animals.
+- X Bound: The boundary on the X-axis to place assets. Past the X Bound, assets will not be placed. You may have to mess around with this value to fit it properly if you change the size of your terrain.
+- Z Bound: The boundary on the Z-axis to place assets. Past the Z Bound, assets will not be placed. You may have to mess around with this value to fit it properly if you change the size of your terrain.
+- Obstacle: Sets the asset to be an obstacle for animals to avoid. If checked, animals while walk around the asset, and vice versa if unchecked. This box should be unchecked for small assets that animals can walk through, such as grass or mint.
 2. Water: The object that represents the water of the terrain. (Do not change this field unless you want to create your own water object.)
-3. X Bound: The boundary on the X-axis to place assets. Past the X Bound, assets will not be placed. You may have to mess around with this value to fit it properly if you change the size of your terrain.
-4. Z Bound: The boundary on the Z-axis to place assets. Past the Z Bound, assets will not be placed. You may have to mess around with this value to fit it properly if you change the size of your terrain.
-5. Global Scale: The amount by which to scale all assets that are placed.
+3. Global Scale: The amount by which to scale all assets that are placed.
 
 Use the "Place Assets" button at the bottom of the Asset Placement script to randomly place your set of assets. You can press the button repeatedly to get different configurations of asset placements.
 
