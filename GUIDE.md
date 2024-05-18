@@ -8,12 +8,13 @@ This guide has multiple sections based on your experience level.
 - If you have experience with a C-family language as well as the **UnityEngine**, you can jump straight to the Assets header and read from there.
 
 ## Prerequisites
-To get started with this kit, you must have the following completed:
-- Download [Unity Hub](https://unity.com/download), the managing platform for Unity.
-- Sign up for [a Unity Account](https://id.unity.com/en/conversations/cfede43a-4864-4242-8951-89a4a4e0d855003f?view=register) and obtain the free license, then sign in in Hub.
-- Download **Unity Version 2022.3.4f1** in Unity Hub, the editor you will be using.
-- Download [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/) if you haven’t, you will write your code here.
-- Finally, you can download the ZIP file for the project, and open it in Unity.
+To get started with this kit, you must have the following completed -- they should already be taken care for you by our team, but in the case you're using a personal device, do these!
+- If not done yet, download [Unity Hub](https://unity.com/download), the managing platform for Unity. You can also sign up for a Unity ID if it ever requires it.
+- If not done yet, download [Github Desktop](https://desktop.github.com/), a platform for version control for saving your work!
+If you haven't yet, sign up or sign in to your github account and fork this repository, then using Github Desktop, sign in and clone your forked respository to somewhere you'll remember.
+Next, open Unity Hub, and in Projects, click Open, and select the folder to your repository. It'll next ask you to select **Unity Version 2022.3.4f1**, which if not downloaded, make sure to download!
+If you haven't yet, download [Visual Studio](https://visualstudio.microsoft.com/downloads/), an IDE (Integrated Development Environment) for you to code with. Or you can use whichever IDE you prefer, but Visual Studio tends to work best with Unity.
+Once your project is finished with first-time setup, open it and you're ready to go.
 ## Navigation
 In the Unity Editor, there are 7 important parts of your screen:
 1. The [Toolbar](https://docs.unity3d.com/Manual/Toolbar.html) is the top bar of the editor. It has the play/stop button in the middle, which will compile and run your game, and then it has a pause button, which will freeze the frame of your game when running.
@@ -24,8 +25,15 @@ In the Unity Editor, there are 7 important parts of your screen:
 6. The [Console](https://docs.unity3d.com/Manual/Console.html) is where all text-based output caused by your scripts will show up, whether it be printed messages or errors in your code. You can use this as a basic point of reference for debugging your scripts. Note: If your game isn’t running like it should be when you press play in the toolbar, it may be because you have an error here in the console, and you’ll have to assess it!
 7. The [Inspector](https://docs.unity3d.com/Manual/UsingTheInspector.html) is where you can change the properties and the components of either a selected game object or a project asset. This is also where you will drag the scripts you code onto selected game objects to bring them to life.
 
-
 As one last important note about the inspector: when you’re writing scripts for your project, they _will not run_ if they are not added as a component to an object in the hierarchy/scene view. 
+
+### Navigating in Scene View
+
+To move around in the Scene view, you can **move** by holding _Alt+MiddleMouse (Windows)_ or _Alt+Command+LeftClick (Mac)_  and dragging with your mouse, **orbit** by holding _Alt+LeftClick (Windows/Mac)_ and dragging, and **zoom** by _Scroll Wheel (Windows)_, or _Alt-Control+LeftCLick (Mac)_ and dragging. 
+
+### Tools in Scene View
+
+To use move navigation as you did before but with just left click, you can use the **View Tool**. Use the **Move Tool** to move an object around in 3 directions, **Rotate Tool** to rotate in 3 planes, **Scale Tool** to change its size symmetrically in 3 directions, **Rect Tool** to change its size asymmetrically (as in only one parallel side of a cube moves), and **Transform Tool** to do pretty much all of the above with one weird looking tool.
 
 To begin learning how to write scripts with the rest of the guide, we will add the `Example.cs` script in your assets to the camera. Start by clicking on the `Main Camera` object, scroll all the way down in the inspector tab, click `Add Component`, type and select `Example`. Now the Main Camera has `Example.cs` as an active component.
 
@@ -252,33 +260,33 @@ In the Animals folder, you’ll want to drag and drop the Prefab objects into yo
 In the Objects folder, you’ll find an **/Environmental** folder and a **/Tools** folder, the 
  first is filled with foliage and rocks, and the second is filled with human tools meant for the player to engage in nature preservation. Both do not come with any scripts or components, and it's up to you to come up with and develop mechanics for any that you wish to use.
 
+### Asset Manipulation
+
+If you'd like, you can also duplicate some of the Animal prefabs and make your own from scratch! You can copy and paste one of the prefabs in your Assets folder, then click on it and press Open at the top right of its properties in the Inspector window:
+
+![image](https://github.com/tritonhacks/TH24-NatureHuntStarter/assets/133953132/baa994cc-3958-4519-a78d-4a542f6aad6b)
+
+Once you're inside the Prefab view, you can change a handful of things. On the left side in your hierarchy, you'll see the main parts of the animal, in which we only recommend changing the **"mesh"** and the **"model"** objects. You can alter the size of the model by clicking in _mesh_ and resizing it in the Scene window. You can also duplicate one of the **materials** from the original animal's Assets folder, change how it looks in its properties, then drag and drop it into the components of the _model_ to replace the old material. Materials in Unity combine a texture and the in-game renderer to change the overall color appearance of an object. There's a lot you can do with them, so feel free to toy around with it to make some weird looking animals!
+
 ## Mechanics
 
-You currently have two core mechanics of your game built-in for you, the **Pathfinding** and the **Terrain**. Here’s how to tweak them to your liking:
+You currently have three core mechanics of your game built-in for you, the **Pathfinding**, **Terrain**, and **Asset Generation**. Here’s how to tweak them to your liking:
 
 ### Pathfinding
 
 The _Pathfinding.cs_ component is found on every Animal prefab, and you can change their Wander Distance, Speed, and their Max Walk & Idle Times in any Animal’s inspector window.
+For the changing properties such as speed, check the Animal's **Nav Mesh Agent** component, which controls their navigation. There you can modify steering properties such as translational and rotational speed, acceleration, braking, as well as obstacle properties, which you can modify if your animal changes in size so that it doesn't clip through objects as an example. 
 
-### Terrain
+**NOTE:** Everytime you change the terrain in your game, you MUST go to the **Nav Mesh Surface** component under **Terrain Mesh** and click Bake, otherwise your Animals won't be able to navigate the newly-generated ground properly! Baking the terrain takes a cool minute or two, so make sure to click Bake only when you feel your terrain is ready.
 
-In MainScene, you are given the Map Generator, Sea Level, and Terrain Mesh. 
+### Terrain & Asset Generation
 
-#### Map Generator
+There's a handful you can do with both the terrain and asset generation. 
 
-To summarize, the map is generated by using something called a noise map, which is a generated pattern of pixels that dictate the depth at given points.
+As a very surface-level description, you can go to the object called **Map Generator** and change the properties in its namesake script component, and then click the Generate button to adjust the map to your liking (remember to bake the terrain's Nav Mesh Surface after)! 
+In the same object, you have the **Asset Placement** script, where you can add the Prefab assets we've given you and modify where they can spawn at random, and then click Place Assets. Be a bit more wary with this one, and make sure to adjust the range on your asset placement according to how your terrain looks so that your Animals and Objects spawn in a more natural way.
 
-In the properties, you can change multiple factors that will alter the appearance of the noise map, and hence the Terrain itself. These factors include the Detail Level, which changes depth differences, Noise Scale, which changes the scale of the map, Seed, which generates a unique noise map, Offset which shifts the map, and others that you can toy with.
-
-Finally, you can click the Generate button to generate the new Terrain. **NOTE**: The texturing will remove itself when you stop playtesting. Click on the Generate button to retexture the Mesh!
-
-#### Sea Level
-
-Once you’ve pressed the Generate button, readjust the Sea Level by clicking on it and moving it up or down to where you wish.
-
-#### Terrain Mesh
-
-The final, but a **very** **important** step, is that once you’re done generating the Map and adjusting the Sea Level, to click on the Terrain Mesh, go down to its NavMeshSurface component in the Inspector, and click on the Bake button. This will adjust the Terrain for Animal Navigation. Baking does take a minute or two, so make sure your Map looks just the way you want it before starting.
+If you'd like a much more in-depth description of how each property works with both scripts, you can check TERRAINDOC.md in your repository!
 
 ## Outro
 
@@ -298,7 +306,7 @@ If this is your first time using Unity, C#, or coding at all, doing a project wi
 
 If you have trouble coming up with concepts for your game, reach out to your mentor for any ideas they might have, or if you have a team, take some time to talk about inspirations of a game you like, facilitate conversation, and most of all, **write stuff down!**
 
-If you have trouble with coding, try looking up solutions to any error codes you struggle with in your console, or debug by printing variables that you are concerned might be the source of your problems as you saw earlier in the guide. 
-If its been a cool several minutes since you started debugging to no avail, ask either your mentor, or put in a ticket to get a tutor to help you out asap! Our job is to help you learn, as well as help you finish a project that will perform well in this Hackathon with zero stress, so don't be afraid to ask for help.
+If you have trouble with coding, try searching for some solutions to any error codes you struggle with in your console, or debug by printing variables that you are concerned might be the source of your problems as you saw earlier in the guide. 
+If its been a few frustrating minutes since you started debugging to no avail, ask either your mentor, or put in a ticket to get a tutor to help you out asap! Our job is to help you learn, as well as help you finish a project that will perform well in this Hackathon with zero stress, so don't be afraid to ask for help.
 
-At this point, you are ready to create your own game with this starter kit! Good luck!
+At this point, you are ready to create your own _Nature_ game with this starter kit! Good luck!
