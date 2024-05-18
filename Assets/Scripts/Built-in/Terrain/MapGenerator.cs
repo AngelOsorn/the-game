@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class MapGenerator : MonoBehaviour {
     public enum DrawMode {NoiseMap, ColorMap, Mesh, FalloffMap};
@@ -39,6 +40,7 @@ public class MapGenerator : MonoBehaviour {
         falloffMap = FalloffGenerator.GenerateFalloffMap(mapChunkSize);
     }
 
+    // Generate map when the game starts
     void Start() {
         GenerateMap();
     }

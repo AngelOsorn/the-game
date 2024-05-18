@@ -1,15 +1,9 @@
 fileFormatVersion: 2
-guid: 1a0ab7a4ff7e04e3d85b6e4c30c93b55
+guid: 33cdb89d422cd4447a1f36680b60bac9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Berry Red
-    second: {fileID: 3168128532475145049, guid: b014987688ffc4e8e978e1e32ce0c8ff,
-      type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
