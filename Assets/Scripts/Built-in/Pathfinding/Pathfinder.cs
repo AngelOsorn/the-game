@@ -25,6 +25,9 @@ public class Pathfinder : MonoBehaviour
     protected NavMeshAgent navAgent;
     protected State currentState = State.Idle;
 
+    public bool redirectAnimal;
+
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -83,7 +86,7 @@ public class Pathfinder : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
 
         Vector3 randomDestination = GetRandomNavMeshPosition(transform.position, wanderDistance);
-        
+
         navAgent.SetDestination(randomDestination);
 
         SetState(State.Moving, true);
@@ -100,7 +103,10 @@ public class Pathfinder : MonoBehaviour
 
         while (navAgent.remainingDistance > navAgent.stoppingDistance)
         {
-            if(Time.time - startTime >= maxWalkTime) {
+            if ((Time.time - startTime >= maxWalkTime) || (redirectAnimal)) 
+            {
+                redirectAnimal = false;
+                Debug.Log("redirection");
                 navAgent.ResetPath();
                 SetState(State.Idle, true);
             }

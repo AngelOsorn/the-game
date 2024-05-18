@@ -78,6 +78,9 @@ public class MapGenerator : MonoBehaviour {
         } else if(drawMode == DrawMode.FalloffMap) {
             display.DrawTexture(TextureGenerator.TextureFromHeightMap(FalloffGenerator.GenerateFalloffMap(mapChunkSize)));
         }
+
+        DestroyImmediate(display.meshFilter.gameObject.GetComponent<MeshCollider>());
+        display.meshFilter.gameObject.AddComponent<MeshCollider>();
     }
 
     void OnValidate() {
